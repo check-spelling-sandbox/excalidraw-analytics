@@ -97,7 +97,7 @@ def main():
         response = get_version_report(analytics, day)
         day_versions = print_version_response(response, day)
 
-        # noramalize days
+        # normalize days
         total_in_day = 0
         for versions in day_versions:
             total_in_day += day_versions[versions]
