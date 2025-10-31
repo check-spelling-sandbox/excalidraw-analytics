@@ -9,7 +9,7 @@ import json
 SCOPES = ["https://www.googleapis.com/auth/analytics.readonly"]
 VIEW_ID = "208661610"
 
-THRESSHOLD = 10
+THRESHOLD = 10
 
 ROOT_DIR = os.path.dirname(os.path.realpath(__file__))
 VERSION_DIR = os.path.join(ROOT_DIR, "version")
@@ -68,7 +68,7 @@ def print_version_response(response, day):
 
             hits = int(metrics[0]["values"][0])
 
-            if hits < THRESSHOLD:
+            if hits < THRESHOLD:
                 continue
 
             counts[version] = hits
@@ -97,7 +97,7 @@ def main():
         response = get_version_report(analytics, day)
         day_versions = print_version_response(response, day)
 
-        # noramalize days
+        # normalize days
         total_in_day = 0
         for versions in day_versions:
             total_in_day += day_versions[versions]
